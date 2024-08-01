@@ -1,0 +1,42 @@
+.module {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px;
+    align-content: center;
+    justify-content: space-between;
+    background-color: #e5e5e5;
+}
+.module-name {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: start;
+}
+i {
+    margin: 5px;
+    margin-right: 10px;
+}
+body {
+    background-color: #0d1b2a;
+    color: #ffffff;
+    margin: 10px auto;
+}
+
+
+@media only screen and (max-width: 700px) {
+    body {
+        margin-top: 20px;
+    }
+    .module, header, footer{
+        flex-direction: column;
+        width: 70%;
+        margin: 10px auto;
+        align-items: center;
+    }
+    .module-name {
+        flex-direction: column;
+        margin: 5px;
+        align-items: center;
+    }
+}
