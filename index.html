@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!--Bootstrap CDN-->
@@ -22,11 +20,11 @@
                     <i class="material-icons">shuffle</i>
                     <h4>Generate Random Fact</h4>
                 </div>
-                <button class = "btn btn-dark" @click="expandRandom"><i class="material-icons">keyboard_arrow_down</i>
+                <button class = "btn btn-bgColor" @click="expandRandom"><i class="material-icons">keyboard_arrow_down</i>
             </div>
             <div :class = "['expand-random', {'inactive': !randomActive }]">
                 <p class ="data">{{ randomFact }}</p>
-                <button class="btn btn-primary btn-block" @click="getRandomFact"><i class="material-icons">refresh</i></button>
+                <button class="btn btn-dark btn-process" @click="getRandomFact"><i class="material-icons">refresh</i></button>
             </div>
         </div>
 
@@ -36,7 +34,7 @@
                     <i class="material-icons">cloud</i>
                     <h4>Current Weather</h4>
                 </div>
-                <button class = "btn btn-dark" @click="expandWeather"><i class="material-icons">keyboard_arrow_down</i>
+                <button class = "btn btn-bgColor" @click="expandWeather"><i class="material-icons">keyboard_arrow_down</i>
             </div>
             <div :class = "['expand-weather', {'inactive': !weatherActive}]">
                 <p>Temperature: {{ weather.temperature }}</p>
@@ -44,17 +42,31 @@
                 <p>Description: {{ weather.description }}</p>
                 <div class="weather-search">
                     <input type="text" v-model="city" placeholder="Enter city name">
-                    <button class="btn btn-primary" @click="getWeather">Get Weather</button>
+                    <button class="btn btn-dark btn-process" @click="getWeather">Get Weather</button>
                 </div>
             </div>
         </div>
-        <div class="card module">
-            <div class="module-name">
-                <i class="material-icons">menu_book</i>
-                <h4>Dictionary</h4>
+
+        <div class = "card">
+            <div class = "module">
+                <div class="module-name">
+                    <i class="material-icons">menu_book</i>
+                    <h4>Dictionary</h4>
+                </div>
+                <button class = "btn btn-bgColor" @click="expandDict"><i class="material-icons">keyboard_arrow_down</i>
             </div>
-            <i class="material-icons">keyboard_arrow_down</i>
+            <div :class = "['expand-dict', {'inactive': !dictActive}]">
+                <p>Word: {{ dictionary.word }}</p>
+                <p>Phonetic: {{ dictionary.phonetic }}</p>
+                <p>Part of Speech: {{ dictionary.partOfSpeech }}</p>
+                <p>Definition: {{ dictionary.definition }}</p>
+                <div class="word-search">
+                    <input type="text" v-model="wordToDefine" placeholder="Enter word to define">
+                    <button class="btn btn-dark btn-primary" @click="getDefinition">Define</button>
+                </div>
+            </div>
         </div>
+
     </main>
 
     <footer>

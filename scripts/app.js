@@ -10,7 +10,15 @@ const app = Vue.createApp({
             },
             city: 'London Ontario',
             weatherActive: false,
-        }
+            dictionary: {
+                word: '',
+                phonetic: '',
+                partOfSpeech: '',
+                definition: ''
+            },
+            wordToDefine: 'Bottle',
+            dictActive: false,
+        };
     },
     methods: {
         getRandomFact() {
@@ -47,7 +55,23 @@ const app = Vue.createApp({
         expandWeather() {
             this.getWeather();
             this.weatherActive = !this.weatherActive;
-        }
+        },
+        getDefinition() {
+            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.wordToDefine}`)
+                .then(response => response.json())
+                .then(data => {
+                    const entry = data[0];
+                    this.dictionary.word = entry.word;
+                    this.dictionary.phonetic = entry.phonetic || 'N/A';
+                    this.dictionary.partOfSpeech = entry.meanings[0].partOfSpeech;
+                    this.dictionary.definition = entry.meanings[0].definitions[0].definition;
+                });
+        },
+        expandDict() {
+            this.getDefinition();
+            this.dictActive = !this.dictActive;
+        },
+
     }
 });
 
