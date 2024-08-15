@@ -8,7 +8,7 @@ const app = Vue.createApp({
                 wind: '',
                 description: ''
             },
-            city: 'London',
+            city: 'London Ontario',
             weatherActive: false,
         }
     },
@@ -29,17 +29,12 @@ const app = Vue.createApp({
             this.randomActive = !this.randomActive;
         },
         getWeather() {
-            fetch(`https://weather-data.liamstewart.ca/?city=${this.city}`, { mode: 'no-cors' })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.statusText}`);
-                    }
-                    return response.json();
-                })
+            fetch(`https://goweather.herokuapp.com/weather/${this.city}`)
+                .then(response => response.json())
                 .then(data => {
                     console.log('Weather data:', data);
                     this.weather.temperature = data.temperature || 'N/A';
-                    this.weather.wind = data.wind_speed || 'N/A';
+                    this.weather.wind = data.wind || 'N/A';
                     this.weather.description = data.description || 'N/A';
                 })
                 .catch(error => {

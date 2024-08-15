@@ -39,7 +39,6 @@
                 <button class = "btn btn-dark" @click="expandWeather"><i class="material-icons">keyboard_arrow_down</i>
             </div>
             <div :class = "['expand-weather', {'inactive': !weatherActive}]">
-                <p>{{ `https://weather-data.liamstewart.ca/?city=${this.city}` }}</p>
                 <p>Temperature: {{ weather.temperature }}</p>
                 <p>Wind: {{ weather.wind }}</p>
                 <p>Description: {{ weather.description }}</p>
