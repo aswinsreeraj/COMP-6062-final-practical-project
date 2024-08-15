@@ -1,4 +1,4 @@
-# Web App: Random Facts, Weather, and Dictionary
+# COMP- 6062 Final Project: Random Facts, Weather, and Dictionary
 
 This is a simple web application built using HTML, CSS, Bootstrap, and Vue.js. The application allows users to:
 - Generate a random fact.
