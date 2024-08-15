@@ -36,8 +36,12 @@ This is a simple web application built using HTML, CSS, Bootstrap, and Vue.js. T
 
 ## Credits
 - **Aswin Sreeraj** - Developer of this web app.
+- **Professor Liam Stewart** - Provided project guidelines for COMP6062.
 - **APIs Used**:
   - [Useless Facts API](https://uselessfacts.jsph.pl/)
   - [GoWeather API](https://goweather.herokuapp.com/weather)
   - [Dictionary API](https://api.dictionaryapi.dev/)
+
+This project was developed as a final submission for the COMP6062 course, following the guidelines provided by Professor Liam Stewart.
+
 
