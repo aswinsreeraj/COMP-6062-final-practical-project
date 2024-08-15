@@ -73,6 +73,9 @@ body {
     color: #ffffff;
     margin: 10px auto;
 }
+label {
+    margin-right: 5px;
+}
 
 .btn-bgColor {
     background-color: #e5e5e5;   

@@ -8,7 +8,8 @@ const app = Vue.createApp({
                 wind: '',
                 description: ''
             },
-            city: 'London Ontario',
+            city: 'London',
+            province: 'Ontario',
             weatherActive: false,
             dictionary: {
                 word: '',
@@ -19,6 +20,11 @@ const app = Vue.createApp({
             wordToDefine: 'Bottle',
             dictActive: false,
         };
+    },
+    computed: {
+        completeCity() {
+            return this.city + " " + this.province;
+        }
     },
     methods: {
         getRandomFact() {
@@ -37,7 +43,7 @@ const app = Vue.createApp({
             this.randomActive = !this.randomActive;
         },
         getWeather() {
-            fetch(`https://goweather.herokuapp.com/weather/${this.city}`)
+            fetch(`https://goweather.herokuapp.com/weather/${this.completeCity}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Weather data:', data);
