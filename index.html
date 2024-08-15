@@ -16,20 +16,38 @@
     </header>
 
     <main class="row">
-        <div class="card module">
-            <div class="module-name">
-                <i class="material-icons">shuffle</i>
-                <h4>Generate Random Fact</h4>
+        <div class = "card">
+            <div class = "module">
+                <div class="module-name">
+                    <i class="material-icons">shuffle</i>
+                    <h4>Generate Random Fact</h4>
+                </div>
+                <button class = "btn btn-dark" @click="expandRandom"><i class="material-icons">keyboard_arrow_down</i>
             </div>
-            <i class="material-icons" @click="expandMe">keyboard_arrow_down</i>
+            <div :class = "['expand-random', {'inactive': !randomActive }]">
+                <p class ="data">{{ randomFact }}</p>
+                <button class="btn btn-primary btn-block" @click="getRandomFact"><i class="material-icons">refresh</i></button>
             </div>
         </div>
-        <div class="card module">
-            <div class="module-name">
-                <i class="material-icons">cloud</i>
-                <h4>Current Weather</h4>
+
+        <div class = "card">
+            <div class = "module">
+                <div class="module-name">
+                    <i class="material-icons">cloud</i>
+                    <h4>Current Weather</h4>
+                </div>
+                <button class = "btn btn-dark" @click="expandWeather"><i class="material-icons">keyboard_arrow_down</i>
             </div>
-            <i class="material-icons">keyboard_arrow_down</i>
+            <div :class = "['expand-weather', {'inactive': !weatherActive}]">
+                <p>{{ `https://weather-data.liamstewart.ca/?city=${this.city}` }}</p>
+                <p>Temperature: {{ weather.temperature }}</p>
+                <p>Wind: {{ weather.wind }}</p>
+                <p>Description: {{ weather.description }}</p>
+                <div class="weather-search">
+                    <input type="text" v-model="city" placeholder="Enter city name">
+                    <button class="btn btn-primary" @click="getWeather">Get Weather</button>
+                </div>
+            </div>
         </div>
         <div class="card module">
             <div class="module-name">

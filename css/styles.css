@@ -1,17 +1,49 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: #e5e5e5;
+    padding: 10px;
+    margin: 10px;
+}
 .module {
     display: flex;
     flex-direction: row;
-    padding: 10px;
-    margin: 10px;
     align-content: center;
+    align-items: center;
     justify-content: space-between;
-    background-color: #e5e5e5;
 }
 .module-name {
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: start;
+}
+.expand-random {
+    margin-top: 10px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.expand-weather {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin: 10px;
+}
+.weather-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+input {
+    margin: 0 10px 0 0;
+}
+.data {
+    margin-left: 10px;
+}
+.inactive {
+    display: none;
 }
 i {
     margin: 5px;
