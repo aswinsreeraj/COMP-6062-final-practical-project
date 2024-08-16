@@ -95,7 +95,7 @@ label {
     background-color: #0d1b2a;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1000px) {
     body {
         margin-top: 20px;
     }
@@ -109,5 +109,17 @@ label {
         flex-direction: column;
         margin: 5px;
         align-items: center;
+    }
+    .weather-search {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        
+    }
+    label, input {
+        margin: 5px 10px;
+    }
+    .btn-process {
+        margin: 5px 10px;
     }
 }

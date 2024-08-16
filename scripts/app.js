@@ -60,7 +60,9 @@ const app = Vue.createApp({
             this.randomActive = !this.randomActive;
         },
         getWeather() { // To fetch weather data for the specific city using the API
-            fetch(`https://goweather.herokuapp.com/weather/${this.completeCity}`)
+            fetch(`https://goweather.herokuapp.com/weather/${this.completeCity}`) 
+                    // https://weather-data.liamstewart.ca/?city=Toronto API had CORS error
+                    // Using default API
                 .then(response => response.json())
                 .then(data => {
                     console.log('Weather data:', data);
