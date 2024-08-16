@@ -1,72 +1,91 @@
+<!-- ============================================================================
+	File Name:	index.html
+	Author:		Aswin Sreeraj
+	Date:		14/08/2024
+	Modified:	None
+	© Fanshawe College, 2023
+
+	Description: 	A web app to generate random fact, view the current weather of 
+                    a city or get information regarding a word.
+============================================================================ -->
+
 <!DOCTYPE html>
 <html lang = "en">
 <head>
     <title>COMP-6062 Final Project</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <!--Bootstrap CDN-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!--Custom CSS-->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Google Material Icons -->
+    <link rel = "stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Bootstrap CDN -->
+    <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel = "stylesheet" href="css/styles.css">
 </head>
-<body id="app" class="container">
+<body id = "app" class = "container">
     <header>
         <h1>Aswin Sreeraj - 110496</h1>
     </header>
 
-    <main class="row">
+    <main class = "row">
+        <!-- Random Fact Generator Module -->
         <div class = "card">
             <div class = "module">
-                <div class="module-name">
-                    <i class="material-icons">shuffle</i>
+                <div class = "module-name">
+                    <i class = "material-icons">shuffle</i>
                     <h4>Generate Random Fact</h4>
                 </div>
-                <button class = "btn btn-bgColor" @click="expandRandom"><i class="material-icons">keyboard_arrow_down</i>
+                <button class = "btn btn-bgColor" @click = "expandRandom"><i class = "material-icons">keyboard_arrow_down</i>
             </div>
             <div :class = "['expand-random', {'inactive': !randomActive }]">
-                <p class ="data">{{ randomFact }}</p>
-                <button class="btn btn-dark btn-process" @click="getRandomFact"><i class="material-icons">refresh</i></button>
+                <p class = "data">{{ randomFact }}</p>
+                <button class = "btn btn-dark btn-process" @click = "getRandomFact"><i class = "material-icons">refresh</i></button>
             </div>
         </div>
-
+        
+        <!-- Current Weather Module -->
         <div class = "card">
             <div class = "module">
-                <div class="module-name">
-                    <i class="material-icons">cloud</i>
+                <div class = "module-name">
+                    <i class = "material-icons">cloud</i>
                     <h4>Current Weather</h4>
                 </div>
-                <button class = "btn btn-bgColor" @click="expandWeather"><i class="material-icons">keyboard_arrow_down</i>
+                <button class = "btn btn-bgColor" @click = "expandWeather"><i class = "material-icons">keyboard_arrow_down</i>
             </div>
+            <!-- Section to display weather -->
             <div :class = "['expand-weather', {'inactive': !weatherActive}]">
                 <p>{{ completeCity }}</p>
                 <p>Temperature: {{ weather.temperature }}</p>
                 <p>Wind: {{ weather.wind }}</p>
                 <p>Description: {{ weather.description }}</p>
-                <div class="weather-search">
+                <!-- Form to submit city and province -->
+                <div class = "weather-search">
                     <label>City: </label>
-                    <input type="text" v-model="city" placeholder="Enter city name">
+                    <input type = "text" v-model = "city" placeholder = "Enter city name">
                     <label>Province: </label>
-                    <input type="text" v-model="province" placeholder="Enter city name">
-                    <button class="btn btn-dark btn-process" @click="getWeather">Get Weather</button>
+                    <input type = "text" v-model = "province" placeholder = "Enter city name">
+                    <button class = "btn btn-dark btn-process" @click = "getWeather">Get Weather</button>
                 </div>
             </div>
         </div>
 
+        <!-- Dictionary Module -->
         <div class = "card">
             <div class = "module">
-                <div class="module-name">
-                    <i class="material-icons">menu_book</i>
+                <div class = "module-name">
+                    <i class = "material-icons">menu_book</i>
                     <h4>Dictionary</h4>
                 </div>
-                <button class = "btn btn-bgColor" @click="expandDict"><i class="material-icons">keyboard_arrow_down</i>
+                <button class = "btn btn-bgColor" @click = "expandDict"><i class = "material-icons">keyboard_arrow_down</i>
             </div>
+            <!-- Section to display the dictionary -->
             <div :class = "['expand-dict', {'inactive': !dictActive}]">
                 <p>Word: {{ dictionary.word }}</p>
                 <p>Phonetic: {{ dictionary.phonetic }}</p>
                 <p>Part of Speech: {{ dictionary.partOfSpeech }}</p>
                 <p>Definition: {{ dictionary.definition }}</p>
-                <div class="word-search">
-                    <input type="text" v-model="wordToDefine" placeholder="Enter word to define">
-                    <button class="btn btn-dark btn-primary" @click="getDefinition">Define</button>
+                <!-- Form to submit the word -->
+                <div class = "word-search">
+                    <input type = "text" v-model = "wordToDefine" placeholder = "Enter word to define">
+                    <button class = "btn btn-dark btn-primary" @click = "getDefinition">Define</button>
                 </div>
             </div>
         </div>
@@ -78,9 +97,9 @@
     </footer>
 
     <!--Vue.js CDN-->
-    <script src="https://unpkg.com/vue@3.4.31/dist/vue.global.js"></script>
+    <script src = "https://unpkg.com/vue@3.4.31/dist/vue.global.js"></script>
     
     <!--Custom JS file-->
-    <script src="scripts/app.js"></script>
+    <script src = "scripts/app.js"></script>
 </body>
 </html>
